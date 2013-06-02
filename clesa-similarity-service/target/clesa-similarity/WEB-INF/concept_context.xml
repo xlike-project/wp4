@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       default-lazy-init="true">
+
+  <context:annotation-config/>
+
+	<!-- ESA -->
+
+	<bean id="wikipedia_concept_index_en-en_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_en-en" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_en" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_de-de_de" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_de" />
+		<property name="indexId" value="wikipedia_de-de" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_de" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_es-es_es" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_es" />
+		<property name="indexId" value="wikipedia_es-es" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_es" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_zh-zh_zh" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_zh" />
+		<property name="indexId" value="wikipedia_zh-zh" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_zh" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_sl-sl_sl" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_sl" />
+		<property name="indexId" value="wikipedia_sl-sl" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_sl" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_ca-ca_ca" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_ca" />
+		<property name="indexId" value="wikipedia_ca-ca" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_ca" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+	</bean>
+
+	<bean id="wikipedia_concept_index_fr-fr_fr" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_fr" />
+		<property name="indexId" value="wikipedia_fr-fr" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_description_fr" class="edu.kit.aifb.wikipedia.sql.WikipediaPageDescription">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+	</bean>
+	
+	<bean id="wikipedia_concept_index_de-en_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_de-en" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_de-en_de" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_de" />
+		<property name="indexId" value="wikipedia_de-en" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="wikipedia_concept_index_en-es_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_en-es" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_en-es_es" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_es" />
+		<property name="indexId" value="wikipedia_en-es" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="wikipedia_concept_index_en-sl_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_en-sl" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_en-sl_sl" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_sl" />
+		<property name="indexId" value="wikipedia_en-sl" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="wikipedia_concept_index_ca-en_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_ca-en" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_ca-en_ca" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_ca" />
+		<property name="indexId" value="wikipedia_ca-en" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="wikipedia_concept_index_en-zh_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_en-zh" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_en-zh_zh" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_zh" />
+		<property name="indexId" value="wikipedia_en-zh" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="wikipedia_concept_index_en-fr_en" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_en" />
+		<property name="indexId" value="wikipedia_en-fr" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="wikipedia_concept_index_en-fr_fr" class="edu.kit.aifb.terrier.concept.TerrierESAIndex"
+		init-method="readIndex">
+		<property name="language" ref="language_fr" />
+		<property name="indexId" value="wikipedia_en-fr" />
+		<property name="weightingModel">
+			<bean class="edu.kit.aifb.terrier.model.RtfIdfModel" />
+		</property>
+		<property name="conceptVectorBuilder">
+			<bean class="edu.kit.aifb.concept.builder.FixedSizeConceptVectorBuilder">
+				<property name="size" value="10000" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- CL Mapping -->
+	<!-- en -->
+	<bean id="mlc_concept_extractor_de-en_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-en_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-en_en" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_en-es_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-es_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-es_en" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_en-sl_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-sl_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-sl_en" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-en_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-en_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-en_en" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_en-zh_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-zh_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-zh_en" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_en-fr_en" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-fr_en" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-fr_en" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-en_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-en_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-en_de" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_en-es_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-es_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-es_es" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_en-sl_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-sl_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-sl_sl" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-en_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-en_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-en_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_en-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_en-fr_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_en-fr_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-fr_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- de -->
+	<bean id="mlc_concept_extractor_de-es_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-es_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-es_de" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_de-sl_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-sl_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-sl_de" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-de_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-de_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-de_de" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-zh_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-zh_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-zh_de" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-fr_de" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-fr_de" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-fr_de" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-es_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-es_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-es_es" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_de-sl_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-sl_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-sl_sl" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-de_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-de_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-de_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_de-fr_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_de-fr_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-fr_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- es -->
+	<bean id="mlc_concept_extractor_es-sl_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-sl_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-sl_es" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-es_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-es_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-es_es" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_es-zh_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-zh_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-zh_es" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_es-fr_es" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-fr_es" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-fr_es" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_es-sl_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-sl_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-sl_sl" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_ca-es_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-es_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-es_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_es-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_es-fr_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_es-fr_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-fr_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- sl -->
+	<bean id="mlc_concept_extractor_ca-sl_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-sl_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-sl_sl" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_sl-zh_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_sl-zh_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_sl-zh_sl" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_fr-sl_sl" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_fr-sl_sl" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_fr-sl_sl" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_ca-sl_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-sl_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-sl_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_sl-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_sl-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_sl-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_fr-sl_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_fr-sl_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_fr-sl_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- ca -->
+	<bean id="mlc_concept_extractor_ca-zh_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-zh_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-zh_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_ca-fr_ca" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-fr_ca" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-fr_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+		<bean id="mlc_concept_extractor_ca-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_ca-fr_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_ca-fr_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-fr_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- zh -->
+	<bean id="mlc_concept_extractor_fr-zh_zh" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_fr-zh_zh" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_fr-zh_zh" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_fr-zh_fr" class="edu.kit.aifb.concept.MappedConceptExtractor">
+		<property name="conceptVectorMapper">
+			<bean class="edu.kit.aifb.concept.MLCConceptVectorMapper">
+				<property name="index" ref="wikipedia_concept_index_fr-zh_fr" />
+			</bean>
+		</property>
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_fr-zh_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- monolingual -->
+	<bean id="mlc_concept_extractor_en-en_en" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_en-en_en" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_de-de_de" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_de-de_de" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_es-es_es" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_es-es_es" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="mlc_concept_extractor_sl-sl_sl" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_sl-sl_sl" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="mlc_concept_extractor_ca-ca_ca" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_ca-ca_ca" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<bean id="mlc_concept_extractor_zh-zh_zh" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_zh-zh_zh" />
+			</bean>
+		</property>
+	</bean>		
+	
+	<bean id="mlc_concept_extractor_fr-fr_fr" class="edu.kit.aifb.concept.DummyMappedConceptExtractor">
+		<property name="conceptExtractor">
+			<bean class="edu.kit.aifb.terrier.concept.TerrierESAConceptExtractor">
+				<property name="index" ref="wikipedia_concept_index_fr-fr_fr" />
+			</bean>
+		</property>
+	</bean>	
+	
+</beans>	

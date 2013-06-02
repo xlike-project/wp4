@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/ls3/development/!svn/ver/9243/lzh/clesa-analysis-service/src/main/webapp/WEB-INF
+END
+wikipedia_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/ls3/development/!svn/ver/9233/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/wikipedia_context.xml
+END
+concept_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/ls3/development/!svn/ver/9233/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/concept_context.xml
+END
+esa_tags.tld
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/ls3/development/!svn/ver/9233/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/esa_tags.tld
+END
+application_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/ls3/development/!svn/ver/9243/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/application_context.xml
+END
+nlp_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/ls3/development/!svn/ver/9233/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/nlp_context.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/ls3/development/!svn/ver/9233/lzh/clesa-analysis-service/src/main/webapp/WEB-INF/web.xml
+END

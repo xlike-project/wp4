@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/ls3/development/!svn/ver/9241/lzh/clesa-similarity-service/src/main/webapp/WEB-INF
+END
+wikipedia_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/ls3/development/!svn/ver/9238/lzh/clesa-similarity-service/src/main/webapp/WEB-INF/wikipedia_context.xml
+END
+concept_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/ls3/development/!svn/ver/9238/lzh/clesa-similarity-service/src/main/webapp/WEB-INF/concept_context.xml
+END
+application_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/ls3/development/!svn/ver/9241/lzh/clesa-similarity-service/src/main/webapp/WEB-INF/application_context.xml
+END
+nlp_context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/ls3/development/!svn/ver/9238/lzh/clesa-similarity-service/src/main/webapp/WEB-INF/nlp_context.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/ls3/development/!svn/ver/9238/lzh/clesa-similarity-service/src/main/webapp/WEB-INF/web.xml
+END

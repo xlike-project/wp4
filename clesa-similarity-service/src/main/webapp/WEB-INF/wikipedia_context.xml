@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="true">
+
+	<context:annotation-config />
+	
+	<!-- Wikipedia database -->
+
+	<bean id="wikipedia_database_en" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_en" />
+		<property name="database" value="lzh_wikipedia_en_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_de" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_de" />
+		<property name="database" value="lzh_wikipedia_de_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_es" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_es" />
+		<property name="database" value="lzh_wikipedia_es_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_zh" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_zh" />
+		<property name="database" value="lzh_wikipedia_zh_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_sl" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_sl" />
+		<property name="database" value="lzh_wikipedia_sl_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_ca" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_ca" />
+		<property name="database" value="lzh_wikipedia_ca_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_fr" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_fr" />
+		<property name="database" value="lzh_wikipedia_fr_201205" />
+	</bean>
+
+	<!-- Wikipedia language pair collection -->
+	<!-- en -->
+	<bean id="mlc_database_en-en_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-en_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-en_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-en_en" />
+	</bean>
+
+	<bean id="mlc_database_de-en_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-en_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-en_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-en_en" />
+	</bean>
+
+	<bean id="mlc_database_en-es_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-es_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-es_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-es_en" />
+	</bean>
+
+	<bean id="mlc_database_en-sl_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-sl_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-sl_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-sl_en" />
+	</bean>
+
+	<bean id="mlc_database_ca-en_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-en_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-en_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-en_en" />
+	</bean>
+
+	<bean id="mlc_database_en-zh_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-zh_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-zh_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-zh_en" />
+	</bean>
+
+	<bean id="mlc_database_en-fr_en" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-fr_en" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-fr_en"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_en" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-fr_en" />
+	</bean>
+
+	<bean id="mlc_database_de-en_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-en_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-en_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-en_de" />
+	</bean>
+
+	<bean id="mlc_database_en-es_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-es_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-es_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-es_es" />
+	</bean>
+
+	<bean id="mlc_database_en-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_ca-en_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-en_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-en_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-en_ca" />
+	</bean>
+
+	<bean id="mlc_database_en-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_en-fr_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_en-fr_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_en-fr_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_en-fr_fr" />
+	</bean>
+
+	<!-- de -->
+	<bean id="mlc_database_de-de_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-de_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-de_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-de_de" />
+	</bean>
+
+	<bean id="mlc_database_de-es_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-es_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-es_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-es_de" />
+	</bean>
+
+	<bean id="mlc_database_de-sl_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-sl_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-sl_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-sl_de" />
+	</bean>
+
+	<bean id="mlc_database_ca-de_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-de_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-de_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-de_de" />
+	</bean>
+
+	<bean id="mlc_database_de-zh_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-zh_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-zh_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-zh_de" />
+	</bean>
+
+	<bean id="mlc_database_de-fr_de" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-fr_de" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-fr_de"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_de" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-fr_de" />
+	</bean>
+
+	<bean id="mlc_database_de-es_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-es_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-es_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-es_es" />
+	</bean>
+
+	<bean id="mlc_database_de-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_ca-de_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-de_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-de_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-de_ca" />
+	</bean>
+
+	<bean id="mlc_database_de-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_de-fr_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_de-fr_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_de-fr_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_de-fr_fr" />
+	</bean>
+
+	<!-- es -->
+	<bean id="mlc_database_es-es_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-es_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-es_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-es_es" />
+	</bean>
+
+	<bean id="mlc_database_es-sl_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-sl_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-sl_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-sl_es" />
+	</bean>
+
+	<bean id="mlc_database_ca-es_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-es_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-es_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-es_es" />
+	</bean>
+
+	<bean id="mlc_database_es-zh_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-zh_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-zh_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-zh_es" />
+	</bean>
+
+	<bean id="mlc_database_es-fr_es" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-fr_es" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-fr_es"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_es" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-fr_es" />
+	</bean>
+
+	<bean id="mlc_database_es-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_ca-es_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-es_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-es_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-es_ca" />
+	</bean>
+
+	<bean id="mlc_database_es-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_es-fr_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_es-fr_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_es-fr_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_es-fr_fr" />
+	</bean>
+
+	<!-- sl -->
+	<bean id="mlc_database_sl-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_sl-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_sl-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_sl-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_ca-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_sl-zh_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_sl-zh_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_sl-zh_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_sl-zh_sl" />
+	</bean>
+
+	<bean id="mlc_database_fr-sl_sl" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_fr-sl_sl" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_fr-sl_sl"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_sl" />
+		<property name="mlcArticleDatabase" ref="mlc_database_fr-sl_sl" />
+	</bean>
+
+	<bean id="mlc_database_ca-sl_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-sl_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-sl_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-sl_ca" />
+	</bean>
+
+	<bean id="mlc_database_sl-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_sl-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_sl-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_sl-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_fr-sl_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_fr-sl_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_fr-sl_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_fr-sl_fr" />
+	</bean>
+
+	<!-- ca -->
+	<bean id="mlc_database_ca-ca_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-ca_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-ca_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-ca_ca" />
+	</bean>
+
+	<bean id="mlc_database_ca-zh_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-zh_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-zh_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-zh_ca" />
+	</bean>
+
+	<bean id="mlc_database_ca-fr_ca" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-fr_ca" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-fr_ca"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_ca" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-fr_ca" />
+	</bean>
+
+	<bean id="mlc_database_ca-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_ca-fr_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_ca-fr_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_ca-fr_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_ca-fr_fr" />
+	</bean>
+
+	<!-- zh -->
+	<bean id="mlc_database_zh-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_zh-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_zh-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_zh-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_fr-zh_zh" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_fr-zh_zh" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_fr-zh_zh"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_zh" />
+		<property name="mlcArticleDatabase" ref="mlc_database_fr-zh_zh" />
+	</bean>
+
+	<bean id="mlc_database_fr-zh_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_fr-zh_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_fr-zh_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_fr-zh_fr" />
+	</bean>
+
+	<!-- fr -->
+	<bean id="mlc_database_fr-fr_fr" class="edu.kit.aifb.wikipedia.mlc.MLCDatabase">
+		<property name="mlcTable" value="mlc_fr-fr_fr" />
+		<property name="database" value="lzh_wikipedia_201205" />
+	</bean>
+	<bean id="wikipedia_collection_fr-fr_fr"
+		class="edu.kit.aifb.wikipedia.sql.WikipediaMLCArticleCollection">
+		<property name="wikipediaDatabase" ref="wikipedia_database_fr" />
+		<property name="mlcArticleDatabase" ref="mlc_database_fr-fr_fr" />
+	</bean>
+
+</beans>

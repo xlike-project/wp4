@@ -1,0 +1,58 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>clesa Web Service</display-name>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/application_context.xml</param-value>
+  </context-param>
+
+  <filter>
+    <filter-name>CharsetFilter</filter-name>
+    <filter-class>edu.kit.aifb.CharsetFilter</filter-class>
+    <init-param>
+      <param-name>requestEncoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CharsetFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <servlet>
+	<servlet-name>analysis</servlet-name>
+	<servlet-class>edu.kit.aifb.clesa.CLESAAnalysisServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+	<servlet-name>analysis</servlet-name>
+	<url-pattern>/analysis</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+	<servlet-name>analysis</servlet-name>
+	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!--  <welcome-file-list> 
+    <welcome-file>index.jsp</welcome-file> 
+  </welcome-file-list> 
+
+  <error-page>
+    <exception-type>edu.kit.aifb.esa.ESAConfigurationException</exception-type>
+    <location>/configuration_error.jsp</location>
+  </error-page> -->
+  
+  <taglib>
+    <taglib-uri>/esa</taglib-uri> 
+    <taglib-location>/WEB-INF/esa_tags.tld</taglib-location> 
+  </taglib>
+
+</web-app>

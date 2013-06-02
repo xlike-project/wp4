@@ -1,0 +1,35 @@
+# Command line for a direct database import in Terminal
+java -jar mwdumper.jar --format=sql:1.5 ../enwiki-20120502-pages-articles1.xml-p000000010p000010000.bz2 | mysql -u root -p wikidb_part_en --default-character-set=utf8
+
+# Arguments for a direct database import in Eclipse
+--output=mysql://localhost/wikidb_part_en?user=root&password=root --format=sql:1.5 h://Data/wikipedia/enwiki-20120502-pages-articles1.xml-p000000010p000010000.bz2
+
+set global max_allowed_packet=128*1024*1024;
+
+# Arguments for BuildESAConceptVectorIndex
+-Dcollection_bean=wikipedia_part_collection -Dlanguage=en -Dterrier_index_id=wikipedia_part
+# Arguments for BuildCLESAConceptVectorIndex
+-Dcollection_bean=jrc_collection -Dlanguages=en,de,es,fr,sl -Dterrier_index_id=jrc-acquis 
+
+# Arguments for ComputeESASimilarity
+-Dlanguage=en "-Dtext_a=Anarchism" "-Dtext_b=social movement"
+# Arguments for ComputeCLESASimilarity
+-Dconcept_index_bean=jrc_concept_index -Dlanguage_a=en -Dlanguage_b=de -Dmapped_concept_extractor_bean=jrc_mapped_concept_extractor -Dconcept_vector_mapper_bean=jrc_concept_vector_mapper 
+"-Dtext_a=to create, as the official journal of the Community within the meaning of Article 191 of the Treaty establishing the European Economic Community the Official Journal of the European Communities." 
+"-Dtext_b=als Amtsblatt der Gemeinschaft im Sinne des Artikels 163 des Vertrages zur Gründung der Europäischen Atomgemeinschaft das Amtsblatt der Europäischen Gemeinschaften zu gründen."
+
+localhost:8080/clesa?language_a=en&language_b=de&text_a=to create, as the official journal of the Community within the meaning of Article 191 of the Treaty establishing the European Economic Community the Official Journal of the European Communities.&text_b=als Amtsblatt der Gemeinschaft im Sinne des Artikels 163 des Vertrages zur Gründung der Europäischen Atomgemeinschaft das Amtsblatt der Europäischen Gemeinschaften zu gründen.
+
+localhost:8080/clesa?lang1=en&lang2=de&doc1=to create, as the official journal of the Community within the meaning of Article 191 of the Treaty establishing the European Economic Community the Official Journal of the European Communities.&doc2=als Amtsblatt der Gemeinschaft im Sinne des Artikels 163 des Vertrages zur Gründung der Europäischen Atomgemeinschaft das Amtsblatt der Europäischen Gemeinschaften zu gründen.
+
+http://localhost:8080/clesa/analyzer?input_language=en&input_text=web%20service
+
+# Arguments for PrintESAConceptVector
+-Dlanguage=en "-Dtext=Anarchism"
+
+
+########################################################################
+
+java -jar mwdumper.jar --format=sql:1.5 /Users/leizhang/Data/Wikipedia/enwiki-20120502-pages-articles1.xml-p000000010p000010000/enwiki-20120502-pages-articles1.xml-p000000010p000010000.bz2 | mysql -u root -p wikidb_part_en --default-character-set=utf8
+
+--output=mysql://localhost/wikidb_part_en?user=root&password=root --format=sql:1.5 /Users/leizhang/Data/Wikipedia/enwiki-20120502-pages-articles1.xml-p000000010p000010000/enwiki-20120502-pages-articles1.xml-p000000010p000010000.bz2

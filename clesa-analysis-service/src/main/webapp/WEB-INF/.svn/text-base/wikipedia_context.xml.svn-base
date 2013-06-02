@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="true">
+
+	<context:annotation-config />
+	
+	<!-- Wikipedia database -->
+
+	<bean id="wikipedia_database_en" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_en" />
+		<property name="database" value="lzh_wikipedia_en_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_de" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_de" />
+		<property name="database" value="lzh_wikipedia_de_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_es" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_es" />
+		<property name="database" value="lzh_wikipedia_es_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_zh" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_zh" />
+		<property name="database" value="lzh_wikipedia_zh_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_sl" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_sl" />
+		<property name="database" value="lzh_wikipedia_sl_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_ca" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_ca" />
+		<property name="database" value="lzh_wikipedia_ca_201205" />
+	</bean>
+
+	<bean id="wikipedia_database_fr" class="edu.kit.aifb.wikipedia.sql.WikipediaDatabase">
+		<property name="language" ref="language_fr" />
+		<property name="database" value="lzh_wikipedia_fr_201205" />
+	</bean>
+
+</beans>

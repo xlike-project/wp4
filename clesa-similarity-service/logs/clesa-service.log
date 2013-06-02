@@ -1,0 +1,22 @@
+2013-04-16 18:22:22,913 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-16 18:22:22,914 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-16 18:22:22,914 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-16 18:22:22,914 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-16 18:22:22,914 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-16 18:22:22,915 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-16 18:36:10,184 [main] INFO  httpclient.HttpMethodDirector: I/O exception (org.apache.commons.httpclient.NoHttpResponseException) caught when processing request: The server localhost failed to respond
+2013-04-16 18:36:10,205 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-16 18:42:17,775 [main] INFO  httpclient.HttpMethodDirector: I/O exception (org.apache.commons.httpclient.NoHttpResponseException) caught when processing request: The server localhost failed to respond
+2013-04-16 18:42:17,789 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:29,621 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:29,637 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:29,637 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:29,637 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:29,637 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:29,637 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:39,542 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:39,542 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:39,543 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:39,543 [main] INFO  httpclient.HttpMethodDirector: Retrying request
+2013-04-18 03:12:39,543 [main] INFO  httpclient.HttpMethodDirector: I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+2013-04-18 03:12:39,543 [main] INFO  httpclient.HttpMethodDirector: Retrying request
